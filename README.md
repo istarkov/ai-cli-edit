@@ -4,7 +4,7 @@ It was way back in early 2025. Before the AI CLI, I had this whole other life.
 
 I was just starting to make it as an AI Engineer. I was building ~~complex~~ agentic prototypes using Python, LlamaIndex, and Gradio. I was wiring up the Vercel AI SDK and spending my nights debugging API calls. My life was good.
 
-And then... (Open|Claude)code went and screwed the whole thing up.
+And then... Open and Claude code went and screwed the whole thing up.
 
 ## Demo: Visual Refactoring
 
@@ -18,7 +18,7 @@ This setup allows me to prototype that experience immediately. By scripting a si
 
 ## Play Locally
 
-To run this on your machine, you will need [Bun](https://bun.com/docs/installation) and any AI agentic tool (OpenCode, Claude Code, VSCode Copilot, Cursor).
+To run this on your machine, you will need [Bun](https://bun.com/docs/installation) and any AI coding tool (OpenCode, Claude Code, VSCode Copilot, Cursor).
 
 1.  Clone the repository.
 2.  Run the development server:
@@ -40,7 +40,7 @@ Once copied, simply paste the result into your AI tool to apply the changes.
 
 To understand the value here, we need to look at what is actually happening under the hood.
 
-When you hit `Escape` in the browser, the [Selection script](https://www.google.com/search?q=./client/selection.client.ts) generates a structured clipboard payload like this:
+When you hit `Escape` in the browser, the [Selection script](./client/selection.client.ts) generates a structured clipboard payload like this:
 
 ```xml
 <edit>
@@ -82,7 +82,7 @@ However, the combination of:
 - Specialized Agent Instructions (via the CLI config)
 - Additional Prompting ({ADDITIONAL_PROMPT} injected via the script)
 
-Can increases the success rate for the specific usecase.
+Can increase the success rate for the specific usecase.
 
 And for the times it _does_ fail, the ability of modern AI CLIs to **Undo/Redo** any action is a must-have.
 
