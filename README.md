@@ -18,16 +18,78 @@ At its core, a lot of modern AI interaction boils down to two components: **Sele
 
 This setup allows me to prototype that experience immediately. By scripting a simple selection mechanism in the browser and pasting the result into OpenCode, I can instantly test any idea.
 
-## Implementation
+## Play Locally
 
-[Selection code](./client/selection.client.ts)
+To run this on your machine, you will need [Bun](https://bun.com/docs/installation) and any AI agentic tool (OpenCode, Claude Code, VSCode Copilot, Cursor).
 
-https://github.com/istarkov/ai-cli-edit/blob/main/client/prompt.client.ts#L1-L9
+1.  Clone the repository.
+2.  Run the development server:
+    ```bash
+    bun run --hot ./index.html
+    ```
+3.  Open the local URL in your browser.
 
-https://github.com/istarkov/ai-cli-edit/blob/357c55d3eb5d30efdb05d4100ae5dfe82468964f/client/prompt.client.ts#L1-L9
+**Controls:**
 
-[AAA](https://github.com/istarkov/ai-cli-edit/blob/357c55d3eb5d30efdb05d4100ae5dfe82468964f/client/prompt.client.ts#L1-L9)
+- **Ctrl/Cmd + E** - Toggle selection mode (move mouse to select elements).
+- **Alt + ↑** - Go up the DOM tree.
+- **Alt + ↓** - Go back down the DOM tree.
+- **Escape** - Copy the edit prompts for all edited elements to clipboard.
 
-```shell
-bun run --hot ./index.html
+Once copied, simply paste the result into your AI tool to apply the changes.
+
+## Under the Hood
+
+To understand the value here, we need to look at what is actually happening under the hood.
+
+When you hit `Escape` in the browser, the [Selection script](https://www.google.com/search?q=./client/selection.client.ts) generates a structured clipboard payload like this:
+
+```xml
+<edit>
+  prompt: Change color to red
+  where:<selection>{context}</selection>
+</edit>
+...
+{ADDITIONAL_PROMPT}
 ```
+
+_You can play with the selection tool and see the output directly in your browser here: [https://istarkov.github.io/ai-cli-edit/](https://istarkov.github.io/ai-cli-edit/)_
+
+High-end reasoning models can usually handle this raw structure without issues. However, faster or lightweight models often need the [{ADDITIONAL_PROMPT}](./client/prompt.client.ts) extra explanation, design rules, what tools to use, or specific formatting constraints to get it right.
+
+You _could_ put all that information into `CLAUDE.md` or an `AGENTS.md` file as global system instructions. But those files are often already overflowing with generic "Do's and Don'ts."
+
+Instead of adding to the noise, we can isolate these instructions.
+
+## Specialized Agents
+
+In OpenCode, this is handled via [Primary Agents](https://opencode.ai/docs/agents/#primary-agents).
+
+Instead of polluting a global config, I can simply create a dedicated definition file at `./.opencode/agent/edit.md`. This file becomes a self-contained persona where I can define:
+
+- **System Instructions** - Specific rules for the task.
+- **Model Parameters** - Temperature and specific model (e.g., using a cheaper model for simple tweaks).
+- **Tools** - Telling the model exactly what tools to use in which situation.
+- **Context** - Knowledge about the project, context for edits like strange names of all board members.
+
+In the Claude ecosystem, this extensibility is achieved through [Skills](https://code.claude.com/docs/en/skills).
+
+## Expectations vs Reality
+
+Does this workflow work perfectly 100% of the time? No.
+
+However, the combination of:
+
+- Explicit Context (via the selection tool i.e. `<edit>` format)
+- Specialized Agent Instructions (via the CLI config)
+- Additional Prompting ({ADDITIONAL_PROMPT} injected via the script)
+
+Can increases the success rate for the specific usecase.
+
+And for the times it _does_ fail, the ability of modern AI CLIs to **Undo/Redo** any action is a must-have.
+
+## Epilogue
+
+**Specialized Agents** were not the reason Opencode went and screwed the whole thing up.
+
+That is a story for the next episode.
