@@ -4,7 +4,7 @@ It was way back in early 2025. Before the AI CLI, I had this whole other life.
 
 I was just starting to make it as an AI Engineer. I was building ~~complex~~ agentic prototypes using Python, LlamaIndex, and Gradio. I was wiring up the Vercel AI SDK and spending my nights debugging API calls. My life was good.
 
-And then... Opencode went and screwed the whole thing up.
+And then... (Open|Claude)code went and screwed the whole thing up.
 
 ## Demo: Visual Refactoring
 
@@ -14,7 +14,7 @@ And then... Opencode went and screwed the whole thing up.
 
 At its core, a lot of modern AI interaction boils down to two components: **Selection** and **Chat**.
 
-This setup allows me to prototype that experience immediately. By scripting a simple selection mechanism in the browser and pasting the result into OpenCode, I can instantly test any idea.
+This setup allows me to prototype that experience immediately. By scripting a simple selection mechanism in the browser and pasting the result into OpenCode, Claude Code or any AI Code tool, I can instantly test any idea.
 
 ## Play Locally
 
