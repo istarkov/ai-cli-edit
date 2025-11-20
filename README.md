@@ -24,7 +24,9 @@ This setup allows me to prototype that experience immediately. By scripting a si
 
 https://github.com/istarkov/ai-cli-edit/blob/main/client/prompt.client.ts#L1-L9
 
-[AAA](https://github.com/istarkov/ai-cli-edit/blob/main/client/prompt.client.ts#L1-L9)
+https://github.com/istarkov/ai-cli-edit/blob/357c55d3eb5d30efdb05d4100ae5dfe82468964f/client/prompt.client.ts#L1-L9
+
+[AAA](https://github.com/istarkov/ai-cli-edit/blob/357c55d3eb5d30efdb05d4100ae5dfe82468964f/client/prompt.client.ts#L1-L9)
 
 ```shell
 bun run --hot ./index.html
