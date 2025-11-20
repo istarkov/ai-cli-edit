@@ -6,9 +6,13 @@ I was just starting to make it as an AI Engineer. I was building ~~complex~~ age
 
 And then... Opencode went and screwed the whole thing up.
 
+## The Shift
+
 What hooked me about tools like OpenCode and Claude Code wasn't their ability to write code.
 
 In a series of simple examples, I’m going to show what makes these tools usable for me.
+
+## Demo: Visual Refactoring
 
 [Video](https://github.com/user-attachments/assets/8afa6e6c-bec8-4b27-b2b1-5a610026da6b)
 
