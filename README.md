@@ -1,4 +1,4 @@
-# How I Met Your (Open|Claude)code
+# How I Met Your AI CLI
 
 It was way back in early 2025. Before the AI CLI, I had this whole other life.
 
