@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script src="./client/selection.client.ts"></script>
+		<style>
+			:root {
+				scrollbar-width: thin;
+				scrollbar-color: oklch(from oklch(34% 0.10793 320 / 0.7) 0.2 c h / 0.8) transparent;
+				/* prevent back/forward navigation with trackpad */
+				overscroll-behavior-x: none;
+				view-transition-name: root;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root" style="display: contents">
+			<!-- INJECT YOUR TAILWIND HTML HERE -->
+			<div class="min-h-screen bg-gray-50 text-gray-900 font-mono p-4 md:p-8 lg:p-12">
+				<!-- Global Grid Container: 12-column base grid for the entire layout -->
+				<div class="grid grid-cols-12 gap-x-2 md:gap-x-4 lg:gap-x-6 min-h-[calc(100vh-6rem)]">
+					<!-- Header/Navigation - Spans all 12 columns, fixed height, strict alignment -->
+					<header
+						class="col-span-12 h-16 border-b-2 border-gray-900 flex items-center justify-between mb-4 md:mb-8 lg:mb-12"
+					>
+						<a
+							href="https://x.com/icelabaratory"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-2xl font-extrabold tracking-tighter hover:opacity-80 transition duration-150"
+						>
+							<span class="text-cyan-500">IVAN</span> STARK<span class="text-fuchsia-500">OV</span>
+						</a>
+						<nav class="flex space-x-4 text-sm font-bold">
+							<!-- Navigation Links with Hover Effects -->
+							<a href="#" class="hover:text-cyan-500 transition duration-150">ARCHIVE</a>
+							<a href="#" class="hover:text-fuchsia-500 transition duration-150">MANIFESTO</a>
+							<a href="#" class="hover:text-green-500 transition duration-150">CONTACT JOJO</a>
+						</nav>
+					</header>
+
+					<!-- Hero Section - Spans 12 columns, uses a sub-grid for internal structure -->
+					<section
+						class="col-span-12 mb-12 md:mb-16 lg:mb-24 grid grid-cols-12 gap-x-2 md:gap-x-4 lg:gap-x-6"
+					>
+						<!-- Left Text Block: 5 columns -->
+						<div class="col-span-12 md:col-span-5 flex flex-col justify-between h-full">
+							<h1
+								class="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter mb-4 md:mb-8"
+							>
+								<span class="block">THE</span>
+								<span class="block text-cyan-500">DIGITAL</span>
+								<span class="block">REBEL</span>
+							</h1>
+							<p class="text-lg font-medium border-t-2 border-gray-900 pt-4">
+								Deconstructing web development. A revolutionary fusion of Swiss precision and modern
+								chaos. Code-locked, yet unbound.
+							</p>
+						</div>
+
+						<!-- Right Image/Cubist Fragment: 7 columns -->
+						<div
+							class="col-span-12 md:col-span-7 relative mt-8 md:mt-0 min-h-[400px] overflow-hidden border-2 border-gray-900 bg-gray-200"
+						>
+							<!-- Cubist Fragmentation Overlay -->
+							<div class="absolute inset-0 z-10 pointer-events-none">
+								<div
+									class="absolute top-0 left-0 w-1/3 h-1/3 bg-fuchsia-500 opacity-30 mix-blend-multiply transform skew-y-12"
+								></div>
+								<div
+									class="absolute bottom-0 right-0 w-1/4 h-1/4 bg-cyan-500 opacity-30 mix-blend-multiply transform skew-x-12"
+								></div>
+								<div
+									class="absolute top-1/4 right-1/4 w-1/2 h-1/2 border-4 border-green-500 opacity-50"
+								></div>
+							</div>
+							<img
+								src="/cgi/image/cdrxux.png"
+								width="1344"
+								height="768"
+								alt="Cyberpunk cubist portrait of Ivan Starkov - hero header"
+								class="w-full h-full object-cover opacity-80 mix-blend-multiply"
+							/>
+							<!-- Neon Grid Line Accent -->
+							<div
+								class="absolute bottom-4 left-4 w-1/3 h-1 bg-cyan-500 shadow-[0_0_10px_#06b6d4]"
+							></div>
+						</div>
+					</section>
+
+					<!-- System Instructions Section -->
+					<section
+						class="col-span-12 mb-12 md:mb-16 lg:mb-24 border-2 border-gray-900 p-6 bg-gray-100"
+					>
+						<h2 class="text-2xl font-black tracking-tighter mb-6 border-b-2 border-gray-900 pb-2">
+							<span class="text-green-500">SYSTEM</span> INSTRUCTIONS
+						</h2>
+						<div class="space-y-4 text-sm md:text-base">
+							<div class="flex items-center gap-4">
+								<kbd
+									class="px-3 py-2 bg-gray-900 text-gray-50 font-mono font-bold border border-gray-900 rounded"
+									>Ctrl/Cmd + E</kbd
+								>
+								<p>Toggle selection mode then move mouse to select elements on the page.</p>
+							</div>
+							<div class="flex items-center gap-4">
+								<kbd
+									class="px-3 py-2 bg-gray-900 text-gray-50 font-mono font-bold border border-gray-900 rounded"
+									>Alt + ↑</kbd
+								>
+								<p>Go up the DOM tree.</p>
+							</div>
+							<div class="flex items-center gap-4">
+								<kbd
+									class="px-3 py-2 bg-gray-900 text-gray-50 font-mono font-bold border border-gray-900 rounded"
+									>Alt + ↓</kbd
+								>
+								<p>Go back down the DOM tree.</p>
+							</div>
+							<div class="flex items-center gap-4">
+								<kbd
+									class="px-3 py-2 bg-gray-900 text-gray-50 font-mono font-bold border border-gray-900 rounded"
+									>Escape</kbd
+								>
+								<p>Copy the edit prompts for all edited elements to clipboard.</p>
+							</div>
+						</div>
+					</section>
+
+					<!-- Main Content Grid: 12 columns for the heroic moments -->
+					<section class="col-span-12 grid grid-cols-12 gap-x-2 md:gap-x-4 lg:gap-x-6">
+						<h2
+							class="col-span-12 text-4xl font-black tracking-tighter mb-8 border-b-2 border-gray-900 pb-2"
+						>
+							<span class="text-fuchsia-500">HEROIC</span> MOMENTS
+						</h2>
+
+						<!-- Sub-Grid for Heroic Moments: Uses subgrid to align with parent 12-column grid -->
+						<div
+							class="col-span-12 grid grid-cols-subgrid gap-y-4 md:gap-y-6 lg:gap-y-8 auto-rows-auto"
+						>
+							<!-- Moment 1: Framework Revolution -->
+							<div
+								class="col-span-12 md:col-span-6 lg:col-span-3 border-2 border-gray-900 p-4 bg-gray-100 relative overflow-hidden grid grid-rows-subgrid gap-0 [grid-row:span_3]"
+							>
+								<h3 class="text-xl font-extrabold tracking-tighter mb-2 md:mb-0">
+									<span class="text-cyan-500">01.</span> FRAMEWORK REVOLUTION
+								</h3>
+								<p class="text-sm mb-4 md:mb-0">
+									The moment the old structure collapsed. A new, mathematically perfect framework
+									emerged from the digital dust.
+								</p>
+								<div
+									class="relative h-48 w-full overflow-hidden border-2 border-gray-900 bg-gray-300"
+								>
+									<img
+										src="/cgi/image/cdrxux.png"
+										width="1152"
+										height="832"
+										alt="Heroic moment 1 - Framework Revolution"
+										class="w-full h-full object-cover opacity-70 mix-blend-multiply"
+									/>
+									<!-- Cubist Fragment Overlay -->
+									<div class="absolute inset-0 z-10 pointer-events-none">
+										<div
+											class="absolute top-1/2 left-0 w-full h-1/4 bg-fuchsia-500 opacity-40 transform skew-x-6"
+										></div>
+										<div
+											class="absolute bottom-0 right-0 w-1/3 h-1/3 border-4 border-cyan-500 opacity-70"
+										></div>
+									</div>
+								</div>
+								<!-- Neon Grid Path -->
+								<div
+									class="absolute top-0 right-0 w-1 h-full bg-green-500 shadow-[0_0_8px_#22c55e]"
+								></div>
+							</div>
+
+							<!-- Moment 2: Impossible Refactor -->
+							<div
+								class="col-span-12 md:col-span-6 lg:col-span-3 border-2 border-gray-900 p-4 bg-gray-100 relative overflow-hidden grid grid-rows-subgrid gap-0 [grid-row:span_3]"
+							>
+								<h3 class="text-xl font-extrabold tracking-tighter mb-2 md:mb-0">
+									<span class="text-fuchsia-500">02.</span> IMPOSSIBLE REFACTOR
+								</h3>
+								<p class="text-sm mb-4 md:mb-0">
+									A 10,000-line legacy monolith deconstructed and rebuilt in a single, perfect
+									commit. Precision over chaos.
+								</p>
+								<div
+									class="relative h-48 w-full overflow-hidden border-2 border-gray-900 bg-gray-300"
+								>
+									<img
+										src="/cgi/image/cdrxux.png"
+										width="1024"
+										height="768"
+										alt="Heroic moment 2 - Impossible Refactor"
+										class="w-full h-full object-cover opacity-70 mix-blend-multiply"
+									/>
+									<!-- Cubist Fragment Overlay -->
+									<div class="absolute inset-0 z-10 pointer-events-none">
+										<div
+											class="absolute top-0 right-0 w-1/2 h-1/2 bg-cyan-500 opacity-40 transform skew-y-6"
+										></div>
+										<div
+											class="absolute bottom-1/4 left-1/4 w-1/2 h-1/2 border-4 border-fuchsia-500 opacity-70"
+										></div>
+									</div>
+								</div>
+								<!-- Neon Grid Path -->
+								<div
+									class="absolute bottom-0 left-0 w-full h-1 bg-cyan-500 shadow-[0_0_8px_#06b6d4]"
+								></div>
+							</div>
+
+							<!-- Moment 3: Hackathon Legend -->
+							<div
+								class="col-span-12 md:col-span-6 lg:col-span-3 border-2 border-gray-900 p-4 bg-gray-100 relative overflow-hidden grid grid-rows-subgrid gap-0 [grid-row:span_3]"
+							>
+								<h3 class="text-xl font-extrabold tracking-tighter mb-2 md:mb-0">
+									<span class="text-green-500">03.</span> HACKATHON LEGEND
+								</h3>
+								<p class="text-sm mb-4 md:mb-0">
+									24 hours of pure, unadulterated creation. The final product was a perfect,
+									self-aware grid system.
+								</p>
+								<div
+									class="relative h-48 w-full overflow-hidden border-2 border-gray-900 bg-gray-300"
+								>
+									<img
+										src="/cgi/image/cdrxux.png"
+										width="1152"
+										height="896"
+										alt="Heroic moment 3 - Hackathon Legend"
+										class="w-full h-full object-cover opacity-70 mix-blend-multiply"
+									/>
+									<!-- Cubist Fragment Overlay -->
+									<div class="absolute inset-0 z-10 pointer-events-none">
+										<div
+											class="absolute bottom-0 left-0 w-1/3 h-full bg-green-500 opacity-40 transform -skew-y-6"
+										></div>
+										<div
+											class="absolute top-0 right-1/4 w-1/4 h-1/4 border-4 border-cyan-500 opacity-70"
+										></div>
+									</div>
+								</div>
+								<!-- Neon Grid Path -->
+								<div
+									class="absolute left-0 top-0 w-1 h-full bg-cyan-500 shadow-[0_0_8px_#06b6d4]"
+								></div>
+							</div>
+
+							<!-- Moment 4: Grid Mastery -->
+							<div
+								class="col-span-12 md:col-span-6 lg:col-span-3 border-2 border-gray-900 p-4 bg-gray-100 relative overflow-hidden grid grid-rows-subgrid gap-0 [grid-row:span_3]"
+							>
+								<h3 class="text-xl font-extrabold tracking-tighter mb-2 md:mb-0">
+									<span class="text-cyan-500">04.</span> GRID MASTERY
+								</h3>
+								<p class="text-sm mb-4 md:mb-0">
+									Mastering the art of spatial harmony. Every pixel perfectly aligned within the
+									eternal grid.
+								</p>
+								<div
+									class="relative h-48 w-full overflow-hidden border-2 border-gray-900 bg-gray-300"
+								>
+									<img
+										src="/cgi/image/cdrxux.png"
+										width="1152"
+										height="832"
+										alt="Heroic moment 4 - Grid Mastery"
+										class="w-full h-full object-cover opacity-70 mix-blend-multiply"
+									/>
+									<!-- Cubist Fragment Overlay -->
+									<div class="absolute inset-0 z-10 pointer-events-none">
+										<div
+											class="absolute top-0 left-1/4 w-1/2 h-1/3 bg-cyan-500 opacity-40 transform skew-x-12"
+										></div>
+										<div
+											class="absolute bottom-1/3 right-0 w-1/3 h-1/3 border-4 border-fuchsia-500 opacity-70"
+										></div>
+									</div>
+								</div>
+								<!-- Neon Grid Path -->
+								<div
+									class="absolute right-0 top-0 h-1 w-full bg-green-500 shadow-[0_0_8px_#22c55e]"
+								></div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Footer - Spans 12 columns -->
+					<footer
+						class="col-span-12 mt-12 md:mt-16 lg:mt-24 border-t-2 border-gray-900 pt-4 text-xs flex justify-between items-end"
+					>
+						<div class="space-y-1">
+							<p>
+								<a
+									href="https://x.com/icelabaratory"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:text-cyan-500 transition duration-150"
+									>Web Developer & Designer</a
+								>
+							</p>
+							<p>
+								<a
+									href="https://github.com/istarkov"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:text-fuchsia-500 transition duration-150"
+									>Building digital experiences</a
+								>
+							</p>
+						</div>
+						<div class="text-right">
+							<p class="font-bold">
+								<a
+									href="https://x.com/icelabaratory"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:opacity-80 transition duration-150"
+									>IVAN STARK<span class="text-cyan-500">OV</span> &copy; 2077</a
+								>
+							</p>
+							<p class="text-gray-600">All rights reserved</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+			<!-- END INJECT YOUR TAILWIND HTML HERE -->
+		</div>
+
+		<!-- SYSTEM PARTS-->
+		<div
+			id="selection-overlay"
+			class="group fixed -m-1 [position-anchor:--selection] top-[anchor(top,-999vh)] left-[anchor(left)] min-w-[calc(anchor-size(width)+0.5rem)] min-h-[calc(anchor-size(height)+0.5rem)] z-50"
+		>
+			<div
+				class="absolute left-0 bottom-full text-white bg-amber-500/60 group-focus-within:bg-amber-500 px-2"
+			>
+				div
+			</div>
+			<textarea
+				style="field-sizing: content"
+				class="absolute border-2 focus-within:border-solid border-dashed border-amber-500 bg-stone-800/40 focus-within:bg-stone-800/50 left-0 top-0 min-w-full min-h-full outline-0 resize-none p-1 text-amber-300 text-shadow-2xs text-shadow-black text-xl font-bold"
+			></textarea>
+		</div>
+		<div
+			id="selection-copied-toast"
+			class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 bg-amber-600 text-white text-sm font-medium rounded-lg shadow-xl transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 translate-y-4 scale-95 pointer-events-none data-[open=true]:opacity-100 data-[open=true]:translate-y-0 data-[open=true]:scale-100"
+		>
+			<span>Copied to clipboard</span>
+		</div>
+		<template data-mark-for-prompt-template>
+			<div
+				class="fixed m-1 w-0 h-0 text-xl text-amber-400 text-shadow-2xs text-shadow-black top-[anchor(top)] left-[anchor(left)]"
+			>
+				⚠️
+			</div>
+		</template>
+	</body>
+</html>
