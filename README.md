@@ -65,7 +65,7 @@ Instead of adding to the noise, we can isolate these instructions.
 
 In OpenCode, this is handled via [Primary Agents](https://opencode.ai/docs/agents/#primary-agents).
 
-Instead of polluting a global config, I can simply create a dedicated definition file at `./.opencode/agent/edit.md`. This file becomes a self-contained persona where I can define:
+Instead of polluting a global config, I can simply create a dedicated definition file at [./.opencode/agent/edit.md](./.opencode/agent/edit.md). This file becomes a self-contained persona where I can define:
 
 - **System Instructions** - Specific rules for the task.
 - **Model Parameters** - Temperature and specific model (e.g., using a cheaper model for simple tweaks).
