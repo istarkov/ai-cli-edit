@@ -88,6 +88,6 @@ And for the times it _does_ fail, the ability of modern AI CLIs to **Undo/Redo**
 
 ## Epilogue
 
-**Specialized Agents** were not the reason Opencode went and screwed the whole thing up.
+**Specialized Agents** were not the reason Open and Claude code went and screwed the whole thing up.
 
 That is a story for the next episode.
