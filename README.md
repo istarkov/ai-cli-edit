@@ -91,3 +91,7 @@ And for the times it _does_ fail, the ability of modern AI CLIs to **Undo/Redo**
 **Specialized Agents** were not the reason Open and Claude code went and screwed the whole thing up.
 
 That is a story for the next episode.
+
+## Twitter
+
+https://x.com/icelabaratory/status/1991431655022837975
