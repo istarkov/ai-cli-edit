@@ -1,20 +1,7 @@
-# How I Met Your AI CLI
-
-It was way back in early 2025. Before the AI CLI, I had this whole other life.
-
-I was just starting to make it as an AI Engineer. I was building ~~complex~~ agentic prototypes using Python, LlamaIndex, and Gradio. I was wiring up the Vercel AI SDK and spending my nights debugging API calls. My life was good.
-
-And then... Open and Claude code went and screwed the whole thing up.
-
 ## Demo: Visual Refactoring
 
 [Video](https://github.com/user-attachments/assets/8afa6e6c-bec8-4b27-b2b1-5a610026da6b)
 
-## The Workflow
-
-At its core, a lot of modern AI interaction boils down to two components: **Selection** and **Chat**.
-
-This setup allows me to prototype that experience immediately. By scripting a simple selection mechanism in the browser and pasting the result into OpenCode, Claude Code or any AI Code tool, I can instantly test any idea.
 
 ## Play Locally
 
@@ -71,27 +58,3 @@ Instead of polluting a global config, I can simply create a dedicated definition
 - **Context** - Knowledge about the project, context for edits like strange names of all board members.
 
 In the Claude ecosystem, this extensibility is achieved through [Skills](https://code.claude.com/docs/en/skills).
-
-## Expectations vs Reality
-
-Does this workflow work perfectly 100% of the time? No.
-
-However, the combination of:
-
-- Explicit Context (via the selection tool i.e. `<edit>` format)
-- Specialized Agent Instructions (via the CLI config)
-- Additional Prompting ({ADDITIONAL_PROMPT} injected via the script)
-
-Can increase the success rate for the specific usecase.
-
-And for the times it _does_ fail, the ability of modern AI CLIs to **Undo/Redo** any action is a must-have.
-
-## Epilogue
-
-**Specialized Agents** were not the reason Open and Claude code went and screwed the whole thing up.
-
-That is a story for the next episode.
-
-## Twitter
-
-https://x.com/icelabaratory/status/1991431655022837975
